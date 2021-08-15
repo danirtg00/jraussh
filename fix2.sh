@@ -164,7 +164,7 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 /etc/init.d/stunnel4 restart
 
 # common password debian 
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/common-password-deb9"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/danirtg00/jraussh/master/password"
 chmod +x /etc/pam.d/common-password
 
 
@@ -203,9 +203,9 @@ cd
 
 
 echo "================= Auto Installer Disable badVPN V 2  ======================"
-#wget https://raw.githubusercontent.com/idtunnel/UDPGW-SSH/master/badudp2.sh
-#chmod +x badudp2.sh
-#bash badudp2.sh
+#wget https://raw.githubusercontent.com/danirtg00/jraussh/master/badvpn2.sh
+#chmod +x badvpn2.sh
+#bash badvpn2.sh
 
 echo "================= Auto Installer Disable badVPN V 3  ======================"
 # buat directory badvpn
@@ -244,9 +244,6 @@ chmod +x /usr/local/share/man/man8/badvpn-tun2socks.8
 chmod +x /usr/bin/build
 chmod +x /etc/rc.local
 
-# Custom Banner SSH
-wget -O /etc/issue.net "https://github.com/idtunnel/sshtunnel/raw/master/debian9/banner-custom.conf"
-chmod +x /etc/issue.net
 
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 echo "DROPBEAR_BANNER="/etc/issue.net"" >> /etc/default/dropbear
@@ -284,15 +281,21 @@ echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 
 # download script
 cd /usr/bin
-wget -O menu "https://raw.githubusercontent.com/daniertg/jraussh/main/menu.sh"
-wget -O usernew "https://raw.githubusercontent.com/daniertg/jraussh/main/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/daniertg/jraussh/main/trial.sh"
-wget -O hapus "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/hapus.sh"
-wget -O cek "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/user-login.sh"
-wget -O member "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/user-list.sh"
-wget -O restart "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/speedtest_cli.py"
-wget -O delete "https://raw.githubusercontent.com/idtunnel/sshtunnel/master/debian9/delete.sh"
+wget -O menu "https://raw.githubusercontent.com/daniertg/jraussh/master/menu.sh"
+wget -O usernew "https://raw.githubusercontent.com/daniertg/jraussh/master/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/daniertg/jraussh/master/trial.sh"
+wget -O hapus "
+"
+wget -O cek "
+"
+wget -O member "
+"
+wget -O restart "
+"
+wget -O speedtest "
+"
+wget -O delete "
+"
 chmod +x menu
 chmod +x usernew
 chmod +x trial
@@ -307,12 +310,7 @@ chmod +x delete
 cd
 # finishing
 chown -R www-data:www-data /home/vps/public_html
-/etc/init.d/ssh restart
-/etc/init.d/dropbear restart
-/etc/init.d/stunnel4 restart
-service squid restart
-/etc/init.d/nginx restart
-#/etc/init.d/openvpn restart
+
 rm -rf ~/.bash_history && history -c
 echo "unset HISTFILE" >> /etc/profile
 
